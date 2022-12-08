@@ -70,6 +70,10 @@ namespace BooksShop.Controllers
                 return BadRequest();
             }
 
+            Category category = db.Categories.FirstOrDefault(x => x.CategoryType == book.Category.CategoryType);
+            book.Category = null;
+            book.CategoryId = category.Id;
+
             db.Books.Add(book);
             await db.SaveChangesAsync();
             return Ok(book);
@@ -87,6 +91,10 @@ namespace BooksShop.Controllers
             {
                 return NotFound();
             }
+
+            Category category = db.Categories.FirstOrDefault(x => x.CategoryType == book.Category.CategoryType);
+            book.Category = null;
+            book.CategoryId = category.Id;
 
             db.Update(book);
             await db.SaveChangesAsync();
