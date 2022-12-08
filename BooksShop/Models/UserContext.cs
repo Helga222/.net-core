@@ -10,6 +10,7 @@ namespace BooksShop.Models
     {
         public DbSet<Book> Books { get; set; }
         public DbSet<Category> Categories { get; set; }
+
         public UserContext(DbContextOptions<UserContext> options)
             : base(options)
         {
@@ -17,9 +18,6 @@ namespace BooksShop.Models
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Book>().Property(e => e.Category).HasConversion(v => v.ToString(),
-            //    v => (Category)Enum.Parse(typeof(Category), v));
-           // modelBuilder.Entity<Book>().Property(e => e.Category).HasConversion<string>();
         }
     }
 }

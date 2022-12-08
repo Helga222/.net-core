@@ -6,6 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using BooksShop.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BooksShop.Controllers
 {
@@ -14,8 +15,8 @@ namespace BooksShop.Controllers
 
         private List<Person> people = new List<Person>
         {
-            new Person {Login="admin@gmail.com", Password="12345", Role = "admin" },
-            new Person { Login="qwerty@gmail.com", Password="55555", Role = "user" }
+            new Person { Login="admin@gmail.com", Password="12345", Role = "admin" },
+            new Person { Login="user@gmail.com", Password="55555", Role = "user" }
         };
 
         [HttpPost("/token")]
@@ -37,12 +38,12 @@ namespace BooksShop.Controllers
                 signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(),
                                         SecurityAlgorithms.HmacSha256));
             var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
-            var responce = new
+            var response = new
             {
                 access_token = encodedJwt,
                 username = identity.Name
             };
-            return Json(responce);
+            return Json(response);
                 
         }
 
@@ -65,5 +66,20 @@ namespace BooksShop.Controllers
             return null;
         }
 
+        [Authorize]
+        [HttpGet("/person")]
+        public IActionResult Person()
+        {
+            var roles = ((ClaimsIdentity)User.Identity).Claims
+                .Where(c => c.Type == ClaimTypes.Role)
+                .Select(c => c.Value).ToArray();
+
+            var response = new
+            {
+                role = roles[0],
+                username = User.Identity.Name
+            };
+            return Json(response);
+        }
     }
 }

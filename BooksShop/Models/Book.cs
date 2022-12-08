@@ -12,7 +12,8 @@ namespace BooksShop
         public string Description { get; set; }
         public int Pages { get; set; }
         public int CategoryId { get; set; }
-        public int Cover { get; set; }
+        public string Cover { get; set; }
+        public bool Favourite { get; set; } = false;
         public Category Category { get; set; }
     }
 }

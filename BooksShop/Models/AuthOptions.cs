@@ -14,6 +14,5 @@ namespace BooksShop.Models
         {
             return new SymmetricSecurityKey(Encoding.ASCII.GetBytes(KEY));
         }
-
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ogu4Rek6tQQfaMMCYwklFHJSJYUyU0qHeSFuRTSIk0P907XnmASaowcef6imfkN/Pksplqk2dN4jaWM40VNTPQ==",
+  "dgSpecHash": "01EEHNgZwhD6e47F/15nEenyl+qTI+XDyOjMcFwQtefTcbbmnhbxbcaHH242zgw8EDpXQSoLGQSRyAW6V5BdTw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Olga\\Documents\\Projects\\.net-core\\BooksShop\\BooksShop.csproj",
+  "projectFilePath": "C:\\Users\\Olga\\Documents\\Projects\\.net-core_new\\.net-core\\BooksShop\\BooksShop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Olga\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.31\\microsoft.aspnetcore.authentication.jwtbearer.3.1.31.nupkg.sha512",
     "C:\\Users\\Olga\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
